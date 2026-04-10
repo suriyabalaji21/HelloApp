@@ -1,22 +1,21 @@
 /**
  * @author [SURIYA]
- * @version UC5: Display "Hello" with Multiple Command-Line Arguments using Enhanced For Loop or Default Message
+ * @version UC6: Display "Hello" with Multiple Command-Line Arguments using substring to Remove Trailing Delimiter
  */   
 public class HelloApp {
     public static void main(String[] args) {
-
         if (args.length == 0) {
             System.out.println("Hello, World!");
-        } else {
-            StringBuilder names = new StringBuilder();
+        } 
+        else {
+            StringBuilder nameBuilder = new StringBuilder();
 
             for (String name : args) {
-                if (names.length() > 0) {
-                    names.append(", ");
-                }
-                names.append(name);
+                nameBuilder.append(name).append(", ");
             }
-            System.out.println("Hello, " + names.toString() + "!");
+            String finalNames = nameBuilder.substring(0, nameBuilder.length() - 2);
+
+            System.out.println("Hello, " + finalNames + "!");
         }
     }
 }
