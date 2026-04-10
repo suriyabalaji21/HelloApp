@@ -2,8 +2,23 @@ package com.helloapp;
 
 public class HelloApp {
     public static void main(String[] args) {
-        // UC3: Using ternary operator for default value
-        String name = (args.length > 0) ? args[0] : "World";
-        System.out.println("Hello, " + name + "!");
+        // UC4: Check if arguments were provided
+        if (args.length > 0) {
+            StringBuilder sb = new StringBuilder();
+            
+            // Loop through the array to collect all names
+            for (int i = 0; i < args.length; i++) {
+                sb.append(args[i]);
+                
+                // Add a comma and space only between names
+                if (i < args.length - 1) {
+                    sb.append(", ");
+                }
+            }
+            System.out.println("Hello, " + sb.toString() + "!");
+        } else {
+            // Default value if no names are provided
+            System.out.println("Hello, World!");
+        }
     }
 }
